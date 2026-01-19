@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohaib chah Parfums | Parfums d'exception</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="pages/sohaib.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== MAIN PAGE ===== -->
+    <div class="page main-page active" id="mainPage">
+<!-- ===== PROMO BANNER ===== -->
+<div class="promo-banner">
+  <div class="promo-scroll">
+    <div class="promo-item">
+      <span class="promo-icon">🚚</span>
+      <span class="promo-text">توصيل سريع - Livraison rapide</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">💰</span>
+      <span class="promo-text">دفع عند الاستلام - Paiement à la livraison</span>
+    </div>
+  </div>
+</div>
+
+        
+        <!-- ===== HEADER ===== -->
+        <header class="header">
+            <div class="header-container">
+                <div class="logo-container">
+                    <img src="images/Logo6.png" alt="Logo Sohaib Parfums" class="logo">
+                    <span class="logo-text">SOHAIB PARFUMS</span>
+                </div>
+                <div class="shopping-bag" id="shoppingBag">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="bag-dot" id="bagDot"></span>
+                </div>
+            </div>
+ 
+        </header>
+        
+        
+ <div class="hero-video-container">
+
+    <div class="video-loader">
+        <div class="spinner"></div>
+    </div>
+
+    <video autoplay muted playsinline>
+        <source src="images/V1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+        
+        
+        
+        
+        
+        
+        
+        <section class="hero-section">
+    <div class="hero-image">
+
+        <!-- الصورة الاحتياطية -->
+       <img src="images/Hero99.jpg" alt="مجموعة عطور صهيب شاه الفاخرة">
+
+        <!-- الفلتر الشفاف -->
+        <div class="hero-filter"></div>
+
+        <!-- الجزيئات العائمة -->
+        <div class="particles-container" id="particles-container"></div>
+
+        <!-- النص العربي والفرنسي -->
+        <div class="hero-content">
+            <div class="changing-text-container">
+                <p class="changing-text-arabic" id="changing-text-arabic">
+                    مــرحـباً بـكـُم في مَوقـع صُهيـب شاه
+                </p>
+                <p class="changing-text-french" id="changing-text-french">
+                    Bienvenue sur le site de Souhaib Shah
+                </p>
+            </div>
+
+            <!-- Scroll Arrow -->
+            <div class="scroll-arrow" id="scrollToProducts">
+                <span></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+        <!-- ===== CATEGORIES ===== -->
+        <section class="categories" id="categories">
+            <div class="categories-title">
+                <h2>Nos Collections</h2>
+                <p class="categories-subtitle">Découvrez nos parfums soigneusement sélectionnés</p>
+            </div>
+            <div class="categories-container">
+                <button class="category-btn active" data-category="homme">HOMMES</button>
+                <button class="category-btn" data-category="femme"> FEMMES</button>
+                <button class="category-btn" data-category="enfant"> ENFANTS</button>
+                 <button class="category-btn" data-category="unisexe">UNISEXE</button>
+                 
+                <div class="underline" id="categoryUnderline"></div>
+            </div>
+        </section>
+
+        <!-- ===== PRODUITS ===== -->
+        <section class="products-section" id="products">
+            <div class="products-wrapper" id="productsWrapper">
+                <!-- Homme Products -->
+                <div class="product-card" data-category="homme">
+                    <div class="product-img">
+                        <img src="images/X4.png" alt="Calypso">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3> ساحر القُلوب</h3>
+                        <span class="price">50.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="homme">
+                    <div class="product-img">
+                        <img src="images/X3.png" alt="Ocean">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Dragon</h3>
+                        <span class="price">65.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="homme">
+                    <div class="product-img">
+                        <img src="homme1.jpg" alt="Noir">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Noir</h3>
+                        <span class="price">75.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="homme">
+                    <div class="product-img">
+                        <img src="homme2.jpg" alt="Spartacus">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Spartacus</h3>
+                        <span class="price">70.00 dh</span>
+                    </div>
+                </div>
+
+                
+
+                <!-- Femme Products -->
+                <div class="product-card" data-category="femme">
+                    <div class="product-img">
+                        <img src="images/X5.png" alt="Mystique">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>ساحرة القلوب</h3>
+                        <span class="price">60.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="femme">
+                    <div class="product-img">
+                        <img src="images/X6.png" alt="Rose">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>العاشقة المجنونة</h3>
+                        <span class="price">85.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="femme">
+                    <div class="product-img">
+                        <img src="femme2.jpg" alt="Jasmin">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Jasmin Blanc</h3>
+                        <span class="price">90.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="femme">
+                    <div class="product-img">
+                        <img src="femme3.jpg" alt="Chanel">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Chérie</h3>
+                        <span class="price">95.00 dh</span>
+                    </div>
+                </div>
+
+       
+
+                <!-- Enfant Products -->
+                <div class="product-card" data-category="enfant">
+                    <div class="product-img">
+                        <img src="images/P14.jpg" alt="Vanille">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Vanille</h3>
+                        <span class="price">55.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="enfant">
+                    <div class="product-img">
+                        <img src="enfant1.jpg" alt="Bubble">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Bubble Gum</h3>
+                        <span class="price">45.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="enfant">
+                    <div class="product-img">
+                        <img src="enfant2.jpg" alt="Fraise">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Fraise Delight</h3>
+                        <span class="price">48.00 dh</span>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="enfant">
+                    <div class="product-img">
+                        <img src="enfant3.jpg" alt="Cotton">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Candy Cotton</h3>
+                        <span class="price">52.00 dh</span>
+                    </div>
+                </div>
+
+          
+                
+                    <div class="product-card" data-category="unisexe">
+                    <div class="product-img">
+                        <img src="enfant4.jpg" alt="Fruit">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Fruit Mix</h3>
+                        <span class="price">50.00 dh</span>
+                    </div>
+                </div>
+                
+                   
+                <div class="product-card" data-category="unisexe">
+                    <div class="product-img">
+                        <img src="enfant4.jpg" alt="Fruit">
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="product-info">
+                        <h3>Fruit Mix</h3>
+                        <span class="price">50.00 dh</span>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- ===== VOIR PLUS ===== -->
+        <div class="voir-plus">
+            <a href="pages/h.html" class="voir-plus-link" id="voirPlusLink">
+                Voir Plus <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+<section class="gallery-section">
+    <div class="image-container">
+        <!-- الرابط يغطي الصورة كاملة -->
+        <a href="pages/homme.html" class="image-link"></a>
+        
+        <!-- الصورة -->
+        <img src="images/B1.jpg" alt="عطر HADRI للرجال">
+        
+        <!-- الزر بنفس الرابط -->
+        <div class="btn">
+            <a href="pages/homme.html" class="btn-link">
+                <!-- haref هنا نص أو رمز داخل الزر -->
+                ⬆︎ POUR HOMMES
+            </a>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <a href="femme.html" class="image-link"></a>
+        <img src="images/B2.jpg" alt="عطر HADRI للنساء">
+        <div class="btn">
+            <a href="pages/femme.html" class="btn-link">
+                ⬆︎ POUR FEMMES 
+            </a>
+        </div>
+    </div>
+    
+    
+    <div class="image-container">
+        <a href="unisexe.html" class="image-link"></a>
+        <img src="images/B3.jpg" alt="عطر HADRI للنساء">
+        <div class="btn">
+            <a href="pages/femme.html" class="btn-link">
+                ⬆︎ POUR UNISEXE
+            </a>
+        </div>
+    </div>
+    
+    
+    
+      <div class="image-container">
+        <a href="pages/enfant.html" class="image-link"></a>
+        <img src="images/B4.jpg" alt="عطر HADRI للنساء">
+        <div class="btn">
+            <a href="pages/femme.html" class="btn-link">
+                ⬆︎ POUR ENFANTS
+            </a>
+        </div>
+    </div>
+    
+    
+    
+</section>
+
+  
+
+
+    <section class="perfume-section">
+        <div class="perfume-card">
+            <div class="perfume-image">
+                 
+                 <img src="images/Logo6.png" alt="">               
+
+                 
+              
+              
+                
+            </div>
+            
+            <h1 class="title">sohaib chah parufms</h1>
+            
+            <div class="description">
+                <p>شركة صهيب شاه تقدم لكم أفضل  العطور الفاخرة التي تجمع بين الأصالة والحداثة. كل عطر هو تحفة فنية من الروائح الفريدة والمكونات عالية الجودة، مصممة بعناية فائقة لتلبي أذواق العملاء الأكثر تميزاً. نسعى دائماً لتقديم تجربة شمولية لا تُنسى، حيث يمثل كل منتج من منتجاتنا قصة من الأناقة والجمال.</p>
+            </div>
+        </div>
+    </section>
+
+
+<div class="slideshow-wrapper">
+    <div class="slideshow-container">
+        <!-- الصور -->
+        <div class="slide active">
+            <div class="image-container">
+                <img src="images/A4.jpg" alt="منظر طبيعي 1">
+            </div>
+           
+        </div>
+        <div class="slide">
+            <div class="image-container">
+                <img src="images/A1.jpg" alt="منظر طبيعي 2">
+            </div>
+            
+        </div>
+        <div class="slide">
+            <div class="image-container">
+                <img src="images/A2.jpg" alt="منظر طبيعي 3">
+            </div>
+            
+        </div>
+        <div class="slide">
+            <div class="image-container">
+                <img src="images/A3.jpg" alt="منظر طبيعي 4">
+            </div>
+            
+        </div>
+
+        <!-- أزرار التحكم -->
+        <button class="control-btn prev-btn">
+            <span>&#10094;</span>
+        </button>
+        <button class="control-btn next-btn">
+            <span>&#10095;</span>
+        </button>
+
+        <!-- نقاط التحكم أسفل الصور -->
+        <div class="dots-container">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+               <!-- LOGO ديال الفوتر -->
+    <div class="footer-logo">
+        <img src="images/Logo6.png" alt="Logo Sohaib Parfums" class="logo-footer">
+    </div>
+    
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SOHAIB  PARFUMS</h3>
+                    <p>Parfums d'exception pour moments précieux</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> +212 7 61 91 02 01</p>
+                    <p><i class="fas fa-clock"></i> 9h - 20h, 7j/7</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/sohaibshop2021?igsh=MXJvdmtnNWJ2dTVneA=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100071423329531"><i class="fab fa-facebook"></i></a>
+                  
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sohaib Parfums. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===== PANIER PAGE ===== -->
+    <div class="page cart-page" id="cartPage">
+        <div class="cart-header">
+            <button class="back-btn" id="backFromCartBtn">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2>Mon Panier</h2>
+            <div class="cart-header-actions">
+                <span class="cart-count" id="cartCount">0 articles</span>
+            </div>
+        </div>
+
+        <div class="cart-content">
+            <div class="cart-items-section" id="cartItemsSection">
+                <!-- Les articles du panier seront ajoutés ici dynamiquement -->
+            </div>
+               <div class="empty-cart-message" id="emptyCartMessage">
+            <i class="fas fa-shopping-bag"></i>
+            <h3>Votre panier est vide</h3>
+            <p>Ajoutez des articles pour commencer vos achats</p>
+           
+        </div>
+
+            <div class="cart-summary">
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Sous-total</span>
+                        <span id="subtotalPrice">0.00 dh</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Paiement</span>
+                        <span>à la livraison</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="totalPrice">0.00 dh</span>
+                    </div>
+                </div>
+
+                <button class="checkout-btn" id="checkoutBtn">
+                    Commander Maintenant
+                </button>
+            </div>
+        </div>
+
+        <div class="empty-cart-message" id="emptyCartMessage">
+            <i class="fas fa-shopping-bag"></i>
+            <h3>Votre panier est vide</h3>
+            <p>Ajoutez des articles pour commencer vos achats</p>
+            <button class="back-to-shop-btn" id="backToShopBtn">
+                <i class="fas fa-store"></i> Retour à la boutique
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== ORDER PAGE ===== -->
+    <div class="page order-page" id="orderPage">
+        <div class="order-header">
+            <button class="back-btn" id="backFromOrderBtn">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2>Finaliser la Commande</h2>
+        </div>
+
+        <div class="order-content">
+            <form id="orderForm">
+                <!-- Informations personnelles -->
+                <section class="order-section">
+                    <h3><i class="fas fa-user"></i> Informations personnelles</h3>
+                    
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" placeholder="Votre prénom" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="lastName">Nom *</label>
+                            <input type="text" id="lastName" placeholder="Votre nom" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" placeholder="Ex: 06 12 34 56 78" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="votre@email.com">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Adresse de livraison -->
+                <section class="order-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Adresse de livraison</h3>
+                    
+                    <div class="input-group">
+                        <label for="city">Ville *</label>
+                        <select id="city" required>
+                            <option value="" disabled selected>Sélectionnez votre ville</option>
+                            <option value="Casablanca">Casablanca</option>
+                            <option value="Rabat">Rabat</option>
+                            <option value="Marrakech">Marrakech</option>
+                            <option value="Fès">Fès</option>
+                            <option value="Tanger">Tanger</option>
+                            <option value="Meknès">Meknès</option>
+                            <option value="Agadir">Agadir</option>
+                            <option value="Oujda">Oujda</option>
+                            <option value="Kenitra">Kenitra</option>
+                            <option value="Tétouan">Tétouan</option>
+                            <option value="Safi">Safi</option>
+                            <option value="Mohammedia">Mohammedia</option>
+                            <option value="Khouribga">Khouribga</option>
+                            <option value="El Jadida">El Jadida</option>
+                            <option value="Nador">Nador</option>
+                            <option value="Beni Mellal">Beni Mellal</option>
+                            <option value="Taza">Taza</option>
+                            <option value="Essaouira">Essaouira</option>
+                            <option value="Larache">Larache</option>
+                            <option value="autre">Autre ville</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="address">Adresse complète *</label>
+                        <textarea id="address" placeholder="Rue, numéro, bâtiment, étage, etc." rows="3" required></textarea>
+                    </div>
+                </section>
+
+                <!-- Récapitulatif de la commande -->
+                <section class="order-section">
+                    <h3><i class="fas fa-receipt"></i> Récapitulatif de la commande</h3>
+                    <div class="order-summary" id="orderSummary">
+                        <!-- Les articles seront ajoutés ici dynamiquement -->
+                    </div>
+                </section>
+
+                <!-- Boutons d'action -->
+                <div class="order-actions">
+                    <button type="submit" class="submit-order-btn" id="submitOrderBtn">
+                        <i class="fab fa-whatsapp"></i> Envoyer la commande sur WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+ 
+ 
