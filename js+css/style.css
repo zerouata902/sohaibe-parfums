@@ -2047,7 +2047,7 @@ media (max-width: 780px) {
     height: 100%;
     object-fit:contain;
     display: block;
-    background:black;
+    background:white;
 }
 
 .caption {
@@ -2312,6 +2312,7 @@ media (max-width: 780px) {
 
 
  
+
 
 
 
