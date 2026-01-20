@@ -864,72 +864,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ===== نظام الكميات المتبقية فقط =====
 
-let productQuantities = JSON.parse(localStorage.getItem('productQuantities')) || {};
-const STORAGE_KEY = 'productQuantities';
+    
 
-document.addEventListener('DOMContentLoaded', () => {
-    initializeProductQuantities();
-    document.querySelectorAll('.product-card').forEach(card => {
-        addQuantityBadge(card);
-    });
-});
-
-function initializeProductQuantities() {
-    if (Object.keys(productQuantities).length === 0) {
-        generateInitialQuantities();
-    }
-}
-
-function generateInitialQuantities() {
-    const products = document.querySelectorAll('.product-card');
-    productQuantities = {};
-    
-    products.forEach((card, index) => {
-        const title = card.querySelector('h3')?.textContent || `Product ${index + 1}`;
-        productQuantities[title] = {
-            current: 10,
-            max: 10
-        };
-    });
-    
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(productQuantities));
-}
-
-function getQtyStatus(current, max) {
-    const percent = (current / max) * 100;
-    
-    if (current <= 0) return { class: 'sold-out', label: 'نفذ' };
-    if (percent <= 20) return { class: 'low', label: 'محدود' };
-    return { class: 'high', label: 'جيد' };
-}
-
-function addQuantityBadge(card) {
-    const title = card.querySelector('h3')?.textContent;
-    if (!title || !productQuantities[title]) return;
-    
-    const qtyData = productQuantities[title];
-    const status = getQtyStatus(qtyData.current, qtyData.max);
-    
-    const qtyContainer = document.createElement('div');
-    qtyContainer.className = 'qty-badge';
-    
-    const qtyBadge = document.createElement('div');
-    qtyBadge.className = `qty-indicator ${status.class}`;
-    qtyBadge.innerHTML = `
-        <div class="qty-label">Qty:</div>
-        <div class="qty-number">${qtyData.current}</div>
-    `;
-    
-    const tooltip = document.createElement('div');
-    tooltip.className = 'qty-tooltip';
-    tooltip.textContent = `${qtyData.current} من ${qtyData.max} متبقي`;
-    
-    qtyContainer.appendChild(qtyBadge);
-    qtyContainer.appendChild(tooltip);
-    card.appendChild(qtyContainer);
-}
 
 
 
