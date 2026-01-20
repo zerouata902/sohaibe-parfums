@@ -434,10 +434,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!voirPlusLink) return;
         
         const links = {
-            'homme': 'homme.html',
-            'femme': 'femme.html',
-            'enfant': 'enfant.html',
-            'unisexe': 'unisexe.html'
+            'homme': 'pages/homme.html',
+            'femme': 'pages/femme.html',
+            'enfant': 'pages/enfant.html',
+            'unisexe': 'pages/unisexe.html'
         };
         
         voirPlusLink.href = links[category] || 'homme.html';
@@ -860,4 +860,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
 });
