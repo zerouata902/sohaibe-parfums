@@ -2309,3 +2309,44 @@ media (max-width: 780px) {
 }
 
 
+        /* ===== التصحيح الأول: media query ===== */
+@media (max-width: 780px) { /* إضافة @ قبل media */
+    
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+    }
+
+/* ===== التصحيح الثاني: مشاكل أخرى ===== */
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* تصحيح containt إلى contain */
+    /* ... باقي الكود ... */
+}
+
+.gallery-section {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: black; /* تصحيح من black إلى black */
+}
+
+.description {
+    color: black;
+    line-height: 1.8;
+    font-size: 16px;
+    background: #faf9f7;
+    padding: 25px;
+    border-radius: 12px;
+    border-right: 4px solid black; /* إزالة # قبل black */
+    text-align: justify;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+
