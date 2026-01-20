@@ -2311,7 +2311,204 @@ media (max-width: 780px) {
 }
 
 
- 
+ /* علامة التخفيض الدائرية */
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    z-index: 10;
+    box-shadow: 0 3px 8px rgba(231, 76, 60, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* الكمية المتبقية (صارت في top: 60px) */
+.qty-badge {
+    position: absolute;
+    top: 60px;   /* ← كما طلبتي */
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.qty-indicator {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #2c3e50;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 10px;
+    font-size: 0.65rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.qty-label {
+    font-size: 0.55rem;
+    color: #7f8c8d;
+    margin-bottom: 1px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.qty-number {
+    font-size: 0.75rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* ألوان الكمية المتبقية */
+.qty-indicator.high {
+    background-color: rgba(46, 204, 113, 0.15);
+    color: #27ae60;
+    border-color: rgba(46, 204, 113, 0.3);
+}
+
+.qty-indicator.medium {
+    background-color: rgba(241, 196, 15, 0.15);
+    color: #f39c12;
+    border-color: rgba(241, 196, 15, 0.3);
+}
+
+.qty-indicator.low {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #c0392b;
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+.qty-indicator.critical {
+    background-color: rgba(192, 57, 43, 0.2);
+    color: #c0392b;
+    border-color: rgba(192, 57, 43, 0.4);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.98); }
+    100% { transform: scale(1); }
+}
+
+/* تصميم الأسعار - فالوسط (الجديد فوق + القديم تحت) */
+.price-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 4px;
+    width: 100%;
+    text-align: center;
+}
+
+.new-price {
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.old-price {
+    color: #95a5a6;
+    font-size: 0.9rem;
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* شطب السعر القديم */
+.price-strike {
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    right: -2px;
+    height: 1.5px;
+    background: linear-gradient(90deg, 
+        rgba(231, 76, 60, 0) 0%,
+        rgba(231, 76, 60, 1) 20%,
+        rgba(231, 76, 60, 1) 80%,
+        rgba(231, 76, 60, 0) 100%);
+    transform: translateY(-50%);
+}
+
+/* نسبة التخفيض الصغيرة */
+.discount-tag {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 1px 4px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: text-top;
+}
+
+/* تلميح الكمية */
+.qty-tooltip {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #2c3e50;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 20;
+}
+
+.qty-badge:hover .qty-tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: 35px;
+}
+
+/* تأثير نفاذ الكمية */
+.sold-out-marker {
+    position: absolute;
+    top: 60px;  /* ← خليتها نفس المكان ديال الكمية */
+    right: 10px;
+    background-color: rgba(231, 76, 60, 0.9);
+    color: white;
+    padding: 3px 6px;
+    border-radius: 10px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    z-index: 10;
+    display: none;
+}
+
+.product-card.sold-out .sold-out-marker {
+    display: block;
+}
+
+.product-card.sold-out .qty-badge {
+    opacity: 0.5;
+    }
+
 
 
 
