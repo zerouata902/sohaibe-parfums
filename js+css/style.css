@@ -69,7 +69,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .promo-banner {
-    height: 18px;
+    height: 25px;
   }
   
   .promo-item {
@@ -2047,6 +2047,7 @@ media (max-width: 780px) {
     height: 100%;
     object-fit:contain;
     display: block;
+    background:black;
 }
 
 .caption {
@@ -2311,6 +2312,7 @@ media (max-width: 780px) {
 
 
  
+
 
 
 
