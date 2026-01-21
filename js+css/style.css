@@ -2826,6 +2826,55 @@ media (max-width: 780px) {
         
 
 
+.product-info {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-card h3 {
+    position: relative;
+    display: inline-block;
+    background-color: white; /* خلفية سوداء داكنة */
+    color: black; /* النص أبيض */
+    padding: 6px 12px; /* أصغر شوي */
+    font-size: 16px; /* حجم النص أصغر شوي */
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px; /* أصغر شوي */
+    
+    letter-spacing: 1px;
+}
+
+/* السهم فوق العنوان في الوسط */
+.product-card h3::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* رفع السهم فوق العنوان */
+    left: 50%; /* في الوسط */
+    transform: translateX(-50%); /* لضبطه في الوسط بالضبط */
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid #222; /* السهم لأسفل بلون الخلفية */
+}
+
+/* تأثير shine خفيف */
+.product-card h3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    border-radius: 4px;
+    pointer-events: none;
+    transform: skewX(-20deg);
+    }
+
+
 
 
 
