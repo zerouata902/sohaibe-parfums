@@ -638,4 +638,259 @@
 
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // نظام عداد المشتريات الذهبي الدائري
+    function initializeGoldPurchaseSystem() {
+        const productCards = document.querySelectorAll('.product-card');
+        
+        productCards.forEach((card, index) => {
+            // إنشاء الوسمة الذهبية الدائرية
+            createGoldPurchaseBadge(card, index);
+        });
+        
+        // بدء التحديث التلقائي
+        startGoldAutoUpdate();
+    }
+    
+    // إنشاء وسمة ذهبية دائرية لكل منتج
+    function createGoldPurchaseBadge(card, index) {
+        // التحقق مما إذا كانت الوسمة موجودة بالفعل
+        if (card.querySelector('.purchase-badge')) {
+            return;
+        }
+        
+        // إنشاء العنصر الدائري الذهبي
+        const purchaseBadge = document.createElement('div');
+        purchaseBadge.className = 'purchase-badge';
+        
+        // إنشاء عداد المشتريات داخل الوسمة
+        const purchaseCount = document.createElement('div');
+        purchaseCount.className = 'purchase-count';
+        
+        // توليد عدد مشتريات عشوائي لكل منتج
+        const basePurchases = Math.floor(Math.random() * (400 - 50 + 1)) + 50;
+        const currentPurchases = basePurchases;
+        
+        // إنشاء عنصر الرقم
+        const numberSpan = document.createElement('span');
+        numberSpan.className = 'number';
+        numberSpan.textContent = formatCompactNumber(currentPurchases);
+        numberSpan.dataset.fullNumber = currentPurchases;
+        numberSpan.dataset.current = currentPurchases;
+        
+        // إنشاء نص "مشتريات"
+        const textSpan = document.createElement('span');
+        textSpan.className = 'text';
+        textSpan.textContent = 'مشتريات';
+        
+        // تجميع العناصر
+        purchaseCount.appendChild(numberSpan);
+        purchaseCount.appendChild(textSpan);
+        purchaseBadge.appendChild(purchaseCount);
+        
+        // إضافة الوسمة إلى بطاقة المنتج
+        card.appendChild(purchaseBadge);
+        
+        // حفظ بيانات المنتج
+        card.dataset.purchases = currentPurchases;
+        card.dataset.lastUpdate = new Date().getTime();
+    }
+    
+    // تنسيق الأرقام بشكل مضغوط (مثال: 1.2K)
+    function formatCompactNumber(num) {
+        if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+        }
+        return num.toString();
+    }
+    
+    // تحديث أعداد المشتريات بنسبة 10%
+    function updateGoldPurchaseCounts() {
+        const productCards = document.querySelectorAll('.product-card');
+        
+        productCards.forEach(card => {
+            const purchaseBadge = card.querySelector('.purchase-badge');
+            if (!purchaseBadge) return;
+            
+            const numberElement = purchaseBadge.querySelector('.number');
+            if (!numberElement) return;
+            
+            const currentCount = parseInt(numberElement.dataset.current || card.dataset.purchases || 100);
+            
+            // حساب الزيادة بنسبة 10%
+            const increasePercentage = 10;
+            const increaseAmount = Math.floor(currentCount * (increasePercentage / 100));
+            const newCount = currentCount + increaseAmount;
+            
+            // تحديث البيانات
+            numberElement.dataset.current = newCount;
+            card.dataset.purchases = newCount;
+            card.dataset.lastUpdate = new Date().getTime();
+            
+            // إضافة تأثير التحديث
+            purchaseBadge.classList.add('updating');
+            numberElement.classList.add('number-changing');
+            
+            // عرض إشعار التحديث
+            showGoldUpdateNotification(purchaseBadge, increasePercentage);
+            
+            // تحديث الرقم مع تأثير تدريجي
+            animateGoldCountChange(numberElement, currentCount, newCount);
+            
+            // إزالة التأثيرات بعد الانتهاء
+            setTimeout(() => {
+                purchaseBadge.classList.remove('updating');
+                numberElement.classList.remove('number-changing');
+            }, 800);
+        });
+        
+        // حفظ وقت آخر تحديث عام
+        localStorage.setItem('lastGoldPurchaseUpdate', new Date().getTime());
+        
+        // تسجيل التحديث في الكونسول (لأغراض التصحيح)
+        console.log('تم تحديث أعداد المشتريات بنسبة 10% - ' + new Date().toLocaleTimeString());
+    }
+    
+    // عرض إشعار التحديث الذهبي
+    function showGoldUpdateNotification(badge, percentage) {
+        // إزالة أي إشعارات سابقة
+        const oldNotification = badge.querySelector('.purchase-update-notification');
+        if (oldNotification) {
+            oldNotification.remove();
+        }
+        
+        // إنشاء إشعار جديد
+        const notification = document.createElement('div');
+        notification.className = 'purchase-update-notification';
+        notification.textContent = `+${percentage}%`;
+        
+        // إضافة الإشعار إلى الوسمة
+        badge.appendChild(notification);
+        
+        // إزالة الإشعار بعد 2 ثانية
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 2000);
+    }
+    
+    // تأثير تغيير الرقم بشكل تدريجي للوسمة الذهبية
+    function animateGoldCountChange(element, oldValue, newValue) {
+        const duration = 600;
+        const steps = 30;
+        const stepTime = duration / steps;
+        const increment = (newValue - oldValue) / steps;
+        
+        let currentStep = 0;
+        let currentValue = oldValue;
+        
+        const timer = setInterval(() => {
+            currentStep++;
+            currentValue += increment;
+            
+            if (currentStep >= steps) {
+                element.textContent = formatCompactNumber(newValue);
+                element.dataset.fullNumber = newValue;
+                clearInterval(timer);
+            } else {
+                element.textContent = formatCompactNumber(Math.floor(currentValue));
+            }
+        }, stepTime);
+    }
+    
+    // بدء التحديث التلقائي كل 5 ساعات
+    function startGoldAutoUpdate() {
+        const fiveHours = 5 * 60 * 60 * 1000; // 5 ساعات بالملي ثانية
+        
+        // التحقق من آخر تحديث
+        const lastUpdate = localStorage.getItem('lastGoldPurchaseUpdate');
+        const now = new Date().getTime();
+        
+        // إذا مرت 5 ساعات منذ آخر تحديث، قم بالتحديث الآن
+        if (lastUpdate && (now - lastUpdate) >= fiveHours) {
+            updateGoldPurchaseCounts();
+        }
+        
+        // ضبط مؤقت للتحديث كل 5 ساعات
+        const updateInterval = setInterval(updateGoldPurchaseCounts, fiveHours);
+        
+        // لأغراض العرض والتجربة: تحديث أولي بعد 3 ثواني
+        setTimeout(updateGoldPurchaseCounts, 3000);
+        
+        // إضافة معلومات التحديث التلقائي إلى الكونسول
+        console.log(`سيتم تحديث أعداد المشتريات تلقائياً كل 5 ساعات (${fiveHours/1000/60/60} ساعات)`);
+        console.log(`التحديث القادم بعد: ${fiveHours/1000/60} دقيقة`);
+    }
+    
+    // تهيئة النظام عند تحميل الصفحة
+    initializeGoldPurchaseSystem();
+    
+});
+</script>
+
+   
+    <script>
+        
+document.addEventListener('DOMContentLoaded', function () {
+
+    const flipCards = document.querySelectorAll('.flip-card');
+
+    flipCards.forEach(card => {
+        const inner = card.querySelector('.flip-card-inner');
+        const back = card.querySelector('.flip-card-back');
+
+        card.setAttribute('title', 'انقر لعرض التفاصيل');
+
+        // تقليب دغيا
+        card.addEventListener('click', function (e) {
+            e.stopPropagation(); // باش ما يتحسبش مع document
+
+            const isFlipped = inner.classList.contains('flipped');
+
+            // رجّع جميع الكروت لأصلها
+            flipCards.forEach(c => {
+                c.querySelector('.flip-card-inner').classList.remove('flipped');
+            });
+
+            if (!isFlipped) {
+                inner.classList.add('flipped');
+
+                // الخلفية كحلة + لمعة فالأول
+                if (back) {
+                    back.style.background = '#000';
+                    back.style.color = '#fff';
+
+                    // ✨ لمعة البداية
+                    back.classList.add('glow');
+                    setTimeout(() => {
+                        back.classList.remove('glow');
+                    }, 300);
+                }
+            }
+        });
+
+        // حركة خفيفة فالهوفر
+        card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-5px)';
+        });
+
+        card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // الضغط فشي بلاصة خارج الكارت يرجّعها
+    document.addEventListener('click', function () {
+        flipCards.forEach(card => {
+            card.querySelector('.flip-card-inner').classList.remove('flipped');
+        });
+    });
+
+});
+
+     
+    </script>
+
 
