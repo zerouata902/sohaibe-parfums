@@ -497,6 +497,9 @@ body {
     color: #1f1f1f;
 }
 
+
+
+
 /* VOIR PLUS */
 .voir-plus {
     text-align: center;
@@ -1184,7 +1187,7 @@ body {
     }
     
     .logo-text {
-        font-size: 18px;
+        font-size: 30px;
          text-align: center;
     }
     
@@ -1257,7 +1260,7 @@ body {
     }
     
     .logo-text {
-        font-size: 16px;
+        font-size: 10px;
          text-align: center;
             display: block;
     margin: 0 auto;
@@ -2885,6 +2888,7 @@ media (max-width: 780px) {
     pointer-events: none;
     transform: skewX(-20deg);
     }
+
 
 
 
