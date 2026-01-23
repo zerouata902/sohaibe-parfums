@@ -2572,7 +2572,55 @@ media (max-width: 780px) {
 }
 
 .flip-card-front {
+    backgro.flip-card-back {
     background: white;
+    color: white;
+    transform: rotateY(180deg);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* تنسيق المكونات */
+.ingredients-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.ingredients-content h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.ingredients-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #f0a500, transparent);
+}
+
+.ingredients-text {
+    color: #e0e0e0;
+    font-size: 0.60rem;
+    line-height: 1;
+    margin-bottom: -5px;
+    text-align: center;
+    padding: 0 10px;
+}und: white;
 }
 
 .flip-card-front img {
@@ -2585,6 +2633,47 @@ media (max-width: 780px) {
 .flip-card:hover .flip-card-front img {
     transform: scale(1.05);
 }
+
+
+.ingredients-footer {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+.ingredients-footer span {
+    color: #f0a500;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* تأثيرات إضافية */
+.flip-card {
+    transition: transform 0.1s ease;
+}
+
+.flip-card:hover {
+    transform: translateY(-5px);
+}
+
+/* تأثير الوهج */
+.flip-card-back::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(240,190,0,0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.flip-card:hover .flip-card-back::before {
+    opacity: 1;
+}
+
 
 .flip-card-back {
     background: white;
@@ -2629,53 +2718,12 @@ media (max-width: 780px) {
 
 .ingredients-text {
     color: #e0e0e0;
-    font-size: 0.90rem;
-    line-height: 1.4;
+    font-size: 0.60rem;
+    line-height: 1;
     margin-bottom: -5px;
     text-align: center;
     padding: 0 10px;
 }
-
-.ingredients-footer {
-    margin-top: 10px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-}
-
-.ingredients-footer span {
-    color: #f0a500;
-    font-size: 0.85rem;
-    font-style: italic;
-}
-
-/* تأثيرات إضافية */
-.flip-card {
-    transition: transform 0.1s ease;
-}
-
-.flip-card:hover {
-    transform: translateY(-5px);
-}
-
-/* تأثير الوهج */
-.flip-card-back::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(240,190,0,0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.flip-card:hover .flip-card-back::before {
-    opacity: 1;
-}
-
-
 
 
 
@@ -2892,6 +2940,7 @@ media (max-width: 780px) {
     pointer-events: none;
     transform: skewX(-20deg);
     }
+
 
 
 
